@@ -1,6 +1,6 @@
 // Copyright (c) 2024 Skeleton-components. All Rights Reserved.
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { TColors, TSizes } from '@scs/types';
+import { TColors, TSizes } from '../../public-api';
 
 
 @Component({
