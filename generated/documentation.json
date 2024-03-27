@@ -1,0 +1,1017 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "IColor",
+            "id": "interface-IColor-ab506ab8a9ad8aca8636438cd86281735fc78c994d932b924dc79cf0f40ca2b59f7324614ca0111cfa75ca457d6cf557f4c05e990a78e8d00f248758110bb8d3",
+            "file": "projects/skeleton-components/src/lib/storybook/color/color-item/color-item.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\r\n\r\ninterface IColor {\r\n  color: string;\r\n  function: string;\r\n  scssVariable: string;\r\n  cssVariable: string;\r\n}\r\n\r\n@Component({\r\n  selector: 'brazukka-color-item',\r\n  templateUrl: './color-item.component.html',\r\n  styleUrl: './color-item.component.scss',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ColorItemComponent {\r\n  @Input({required: true}) title!: string;\r\n  @Input({required: false}) subtitle: string | undefined;\r\n  @Input({required: true}) colors: Array<IColor> = [];\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "cssVariable",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "scssVariable",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        }
+    ],
+    "injectables": [],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-becb0589030d127dbcce8959353b72f8b8cfd1cbf361b279697f79a8ffb148fb44523ca92e9fbb832f95b6c12c91cfe55e7ad59156a273b97f15f3c5f50542d6",
+            "file": "projects/skeleton-components/src/lib/components/atoms/button/button.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "brazukka-button",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "required": true,
+                    "name": "color",
+                    "defaultValue": "'black'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": false,
+                    "line": 15,
+                    "type": "TColors",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string | undefined",
+                    "decorators": []
+                },
+                {
+                    "required": true,
+                    "name": "size",
+                    "defaultValue": "'regular'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": false,
+                    "line": 16,
+                    "type": "TSizes",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "clicked",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "EventEmitter<Event>"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "click",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';\r\nimport { TColors, TSizes } from '@scs/types';\r\n\r\n\r\n@Component({\r\n  selector: 'brazukka-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrl: './button.component.scss',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ButtonComponent {\r\n\r\n  @Input() label: string | undefined;\r\n  @Input({required: true}) color: TColors = 'black';\r\n  @Input({required: true}) size: TSizes = 'regular';\r\n\r\n  @Output() clicked: EventEmitter<Event> = new EventEmitter<Event>();\r\n\r\n  click(event: MouseEvent): void {\r\n    this.clicked.emit(event);\r\n  }\r\n}\r\n",
+            "styleUrl": "./button.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<button\r\n  class=\"scs-button color-{{ color }} size-{{ size }}\"\r\n  title=\"{{ label }}\"\r\n  (click)=\"click($event)\">\r\n\r\n  <span  class=\"scs-button-label\">{{ label }}</span>\r\n\r\n</button>\r\n"
+        },
+        {
+            "name": "ColorItemComponent",
+            "id": "component-ColorItemComponent-ab506ab8a9ad8aca8636438cd86281735fc78c994d932b924dc79cf0f40ca2b59f7324614ca0111cfa75ca457d6cf557f4c05e990a78e8d00f248758110bb8d3",
+            "file": "projects/skeleton-components/src/lib/storybook/color/color-item/color-item.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "brazukka-color-item",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./color-item.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "required": true,
+                    "name": "colors",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": false,
+                    "line": 20,
+                    "type": "Array<IColor>",
+                    "decorators": []
+                },
+                {
+                    "required": true,
+                    "name": "subtitle",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": true,
+                    "line": 19,
+                    "type": "string | undefined",
+                    "decorators": []
+                },
+                {
+                    "required": true,
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": false,
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\r\n\r\ninterface IColor {\r\n  color: string;\r\n  function: string;\r\n  scssVariable: string;\r\n  cssVariable: string;\r\n}\r\n\r\n@Component({\r\n  selector: 'brazukka-color-item',\r\n  templateUrl: './color-item.component.html',\r\n  styleUrl: './color-item.component.scss',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ColorItemComponent {\r\n  @Input({required: true}) title!: string;\r\n  @Input({required: false}) subtitle: string | undefined;\r\n  @Input({required: true}) colors: Array<IColor> = [];\r\n}\r\n",
+            "styleUrl": "./color-item.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"item\">\r\n  <div class=\"item-description\">\r\n    <div class=\"item-title\">{{ title }}</div>\r\n    <div *ngIf=\"subtitle\" class=\"item-subtitle\">{{ subtitle }}</div>\r\n  </div>\r\n  <div class=\"swatches\">\r\n    <div class=\"swatch-specimen\">\r\n      <div class=\"swatch-colors\">\r\n        <div *ngFor=\"let color of colors; index as i\" class=\"swatch\" [style.background]=\"color.color\"></div>\r\n      </div>\r\n      <div class=\"swatch-labels\">\r\n        <div *ngFor=\"let color of colors; index as i\" class=\"swatch-label bold\">{{ color.function }}</div>\r\n        <div *ngFor=\"let color of colors; index as i\" class=\"swatch-label\">{{ color.color }}</div>\r\n        <div *ngFor=\"let color of colors; index as i\" class=\"swatch-label\">{{ color.scssVariable }}</div>\r\n        <div *ngFor=\"let color of colors; index as i\" class=\"swatch-label\">{{ color.cssVariable }}</div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+        },
+        {
+            "name": "ColorPaletteComponent",
+            "id": "component-ColorPaletteComponent-62547e69038d61ddb2b4ae1681909d899ed500569352613e9ea3c5ec1d9f0c79d61ec1a17d7e6ea319d2c528346424308aff9cad324d595c7d57947d564db9f4",
+            "file": "projects/skeleton-components/src/lib/storybook/color/color-palette/color-palette.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "brazukka-color-palette",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./color-palette.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'brazukka-color-palette',\r\n  templateUrl: './color-palette.component.html',\r\n  styleUrl: './color-palette.component.scss',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ColorPaletteComponent {}\r\n",
+            "styleUrl": "./color-palette.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>color-palette works!</p>\r\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AssetsModule",
+            "id": "module-AssetsModule-267b49715e190832f22750b88ee015b22bec3ab14a7b5621f038b6c2b419261fab6aa01a5ed4bbd102d49a9073dd3d039b7efe2d501ab5ed2e480bb3521f258b",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/skeleton-components/src/lib/assets/assets.module.ts",
+            "methods": [],
+            "sourceCode": "\r\nimport { NgModule } from '@angular/core';\r\n\r\n@NgModule({\r\n    imports: [],\r\n    declarations: [],\r\n})\r\nexport class AssetsModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AtomsModule",
+            "id": "module-AtomsModule-2d16a393a4d3ea1f633674dd7891ee5bf8dea504b53a6c903fc1b2a71018af983da086b78e372ac990779659987ba79159777e4ac23fda5bb5be1538e4adc779",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/skeleton-components/src/lib/components/atoms/atoms.module.ts",
+            "methods": [],
+            "sourceCode": "// Copyright (c) 2024 Skeleton-components. All Rights Reserved.\r\n\r\nimport { ButtonComponent } from './button/button.component';\r\nimport { CommonModule } from '@angular/common';\r\nimport { NgModule } from '@angular/core';\r\n\r\n@NgModule({\r\n    declarations: [ButtonComponent],\r\n    imports: [CommonModule],\r\n    exports: [ButtonComponent],\r\n})\r\nexport class AtomsModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ColorModule",
+            "id": "module-ColorModule-107d083c920e3530929bbbf88dc0884fe2b722c7d8f8ce8611bf26df6e21882e07b64ab644c2eddd76317f700946ce5f1a9bf389d888a64df4ed20b18cfde7b6",
+            "description": "<p>Color Module</p>\n",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/skeleton-components/src/lib/storybook/color/color.module.ts",
+            "methods": [],
+            "sourceCode": "// Copyright (c) 2024 Brazukka B.V. Nederland. All Rights Reserved.\r\n\r\nimport { ColorItemComponent } from './color-item/color-item.component';\r\nimport { ColorPaletteComponent } from './color-palette/color-palette.component';\r\nimport { NgModule } from '@angular/core';\r\n\r\n/**\r\n * Color Module\r\n */\r\n@NgModule({\r\n  declarations: [ColorItemComponent, ColorPaletteComponent],\r\n  imports: [],\r\n  exports: [ColorItemComponent, ColorPaletteComponent],\r\n})\r\nexport class ColorModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ColorItemComponent"
+                        },
+                        {
+                            "name": "ColorPaletteComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ColorItemComponent"
+                        },
+                        {
+                            "name": "ColorPaletteComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ComponentsModule",
+            "id": "module-ComponentsModule-b48b9dde02c0ea8ebf56362fb1057398d2e0a1f3755b14876d7f6b8a93b2eff4b2da1967b4717d0f41aaefb4f62257f6e075afe3c7b3f3fba8d4468b4aac0998",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/skeleton-components/src/lib/components/components.module.ts",
+            "methods": [],
+            "sourceCode": "// Copyright (c) 2024 Skeleton-components. All Rights Reserved.\r\n\r\nimport { AtomsModule } from './atoms/atoms.module';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MoleculesModule } from './molecules/molecules.module';\r\nimport { NgModule } from '@angular/core';\r\nimport { OrganismsModule } from './organisms/organisms.module';\r\nimport { PagesModule } from './pages/pages.module';\r\nimport { ParticlesModule } from './particles/particles.module';\r\nimport { TemplatesModule } from './templates/templates.module';\r\n\r\n@NgModule({\r\n    imports: [CommonModule, ParticlesModule, AtomsModule, MoleculesModule, OrganismsModule, TemplatesModule, PagesModule],\r\n    exports: [ParticlesModule, AtomsModule, MoleculesModule, OrganismsModule, TemplatesModule, PagesModule],\r\n    declarations: [],\r\n})\r\nexport class ComponentsModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AtomsModule"
+                        },
+                        {
+                            "name": "MoleculesModule"
+                        },
+                        {
+                            "name": "OrganismsModule"
+                        },
+                        {
+                            "name": "PagesModule"
+                        },
+                        {
+                            "name": "ParticlesModule"
+                        },
+                        {
+                            "name": "TemplatesModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "AtomsModule"
+                        },
+                        {
+                            "name": "MoleculesModule"
+                        },
+                        {
+                            "name": "OrganismsModule"
+                        },
+                        {
+                            "name": "PagesModule"
+                        },
+                        {
+                            "name": "ParticlesModule"
+                        },
+                        {
+                            "name": "TemplatesModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "MoleculesModule",
+            "id": "module-MoleculesModule-d5113acbc5a7005f729d1a6a1fb74724d7c52781eb2b8f4cb3a0df43a6bdcca90042ce2fc6856b6cb00fd07870a65bd569e2946a35e7d2b6863f3cdb58354eba",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/skeleton-components/src/lib/components/molecules/molecules.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\n\r\n@NgModule({\r\n    imports: [],\r\n    exports: [],\r\n    declarations: [],\r\n})\r\nexport class MoleculesModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "OrganismsModule",
+            "id": "module-OrganismsModule-ef5fce07b06dcb0e219e5724c8e4d64e2402ffef81dde694b179a9a7b0df236df33039f3b7b5f996d7264540e5f72f729a651138e5c8f0b9b8ae23132fe5f9e8",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/skeleton-components/src/lib/components/organisms/organisms.module.ts",
+            "methods": [],
+            "sourceCode": "// Copyright (c) 2024 Skeleton-components. All Rights Reserved.\r\n\r\nimport { AtomsModule } from '../atoms/atoms.module';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MoleculesModule } from '../molecules/molecules.module';\r\nimport { NgModule } from '@angular/core';\r\nimport { RouterModule } from '@angular/router';\r\n\r\n@NgModule({\r\n    declarations: [],\r\n    imports: [CommonModule, RouterModule, AtomsModule, MoleculesModule],\r\n    exports: [],\r\n})\r\nexport class OrganismsModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AtomsModule"
+                        },
+                        {
+                            "name": "MoleculesModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "PagesModule",
+            "id": "module-PagesModule-1e607239bfd09a86b83bb9f1628aaca0318b92607b2253929163c32569949c0e41749b78a36dfb72ff989aeaa059ad3bdf03546dc7627838a5531e6cc5d6dbdc",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/skeleton-components/src/lib/components/pages/pages.module.ts",
+            "methods": [],
+            "sourceCode": "// Copyright (c) 2024 Skeleton-components. All Rights Reserved.\r\n\r\nimport { AssetsModule } from '../../assets/assets.module';\r\nimport { AtomsModule } from '../atoms/atoms.module';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MoleculesModule } from '../molecules/molecules.module';\r\nimport { NgModule } from '@angular/core';\r\nimport { OrganismsModule } from '../organisms/organisms.module';\r\nimport { RouterModule } from '@angular/router';\r\nimport { TemplatesModule } from '../templates/templates.module';\r\n\r\n@NgModule({\r\n    declarations: [],\r\n    imports: [CommonModule, RouterModule, AssetsModule, AtomsModule, MoleculesModule, OrganismsModule, TemplatesModule],\r\n    exports: [],\r\n})\r\nexport class PagesModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AssetsModule"
+                        },
+                        {
+                            "name": "AtomsModule"
+                        },
+                        {
+                            "name": "MoleculesModule"
+                        },
+                        {
+                            "name": "OrganismsModule"
+                        },
+                        {
+                            "name": "TemplatesModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ParticlesModule",
+            "id": "module-ParticlesModule-208f14e3ccf3b669b1f724a624160e48cf12bd5c54dfd1fa6fd701f772e6d8f3d4c9f59c259e4be5c7dfa70f1ef4b59d2438c7859f573fb1d78aa95c9a956f00",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/skeleton-components/src/lib/components/particles/particles.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\n\r\n@NgModule({\r\n    imports: [],\r\n    exports: [],\r\n    declarations: [],\r\n})\r\nexport class ParticlesModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "TemplatesModule",
+            "id": "module-TemplatesModule-7ac83abf9b69d187a24897712fa88e67542f7968a4d69f0e2ec37a0e954edecaa4e37eeecacadb66e85e0bfb858790551e164daf0f4775c2bd42fe06ac53ee73",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/skeleton-components/src/lib/components/templates/templates.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\n\r\n@NgModule({\r\n    imports: [],\r\n    exports: [],\r\n    declarations: [],\r\n})\r\nexport class TemplatesModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "color",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/color/color-item/color-item.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TColorItemTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    title: 'Primary',\r\n    subtitle: 'green',\r\n    colors: [ {\r\n      color: '#7ba9a9',\r\n      function: 'base',\r\n      scssVariable: '$color-primary',\r\n      cssVariable: '--color-primary'\r\n    }]\r\n  }\r\n}"
+            },
+            {
+                "name": "color",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/color/color-palette/color-palette.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TColorPaletteTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    headerTitle: 'Maxxy-tiles',\r\n    headerColor: 'primary',\r\n    footerColor: 'primary'\r\n  }\r\n}"
+            },
+            {
+                "name": "primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/components/atoms/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TButtonTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Primary Button',\r\n    size: 'regular'\r\n  }\r\n}"
+            },
+            {
+                "name": "secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/components/atoms/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TButtonTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Primary Button',\r\n    color: 'secondary',\r\n    size: 'regular'\r\n  }\r\n}"
+            }
+        ],
+        "functions": [],
+        "typealiases": [
+            {
+                "name": "TButtonTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "projects/skeleton-components/src/lib/components/atoms/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "TColorItemTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ColorItemComponent>",
+                "file": "projects/skeleton-components/src/lib/storybook/color/color-item/color-item.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "TColorPaletteTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ColorPaletteComponent>",
+                "file": "projects/skeleton-components/src/lib/storybook/color/color-palette/color-palette.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "TColors",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"black\" | \"white\" | \"gray\" | \"primary\" | \"secondary\"",
+                "file": "projects/skeleton-components/src/lib/components/types/t-colors.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 192
+            },
+            {
+                "name": "TIconSet",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"icon\" | \"country\"",
+                "file": "projects/skeleton-components/src/lib/components/types/t-icon-set.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 192
+            },
+            {
+                "name": "TSizes",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"small\" | \"extra-small\" | \"regular\" | \"medium\" | \"large\" | \"huge\"",
+                "file": "projects/skeleton-components/src/lib/components/types/t-sizes.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 192
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "projects/skeleton-components/src/lib/storybook/color/color-item/color-item.component.stories.ts": [
+                {
+                    "name": "color",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/color/color-item/color-item.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TColorItemTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    title: 'Primary',\r\n    subtitle: 'green',\r\n    colors: [ {\r\n      color: '#7ba9a9',\r\n      function: 'base',\r\n      scssVariable: '$color-primary',\r\n      cssVariable: '--color-primary'\r\n    }]\r\n  }\r\n}"
+                }
+            ],
+            "projects/skeleton-components/src/lib/storybook/color/color-palette/color-palette.component.stories.ts": [
+                {
+                    "name": "color",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/color/color-palette/color-palette.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TColorPaletteTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    headerTitle: 'Maxxy-tiles',\r\n    headerColor: 'primary',\r\n    footerColor: 'primary'\r\n  }\r\n}"
+                }
+            ],
+            "projects/skeleton-components/src/lib/components/atoms/button/button.component.stories.ts": [
+                {
+                    "name": "primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/components/atoms/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TButtonTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Primary Button',\r\n    size: 'regular'\r\n  }\r\n}"
+                },
+                {
+                    "name": "secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/components/atoms/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TButtonTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Primary Button',\r\n    color: 'secondary',\r\n    size: 'regular'\r\n  }\r\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "projects/skeleton-components/src/lib/components/atoms/button/button.component.stories.ts": [
+                {
+                    "name": "TButtonTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "projects/skeleton-components/src/lib/components/atoms/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/skeleton-components/src/lib/storybook/color/color-item/color-item.component.stories.ts": [
+                {
+                    "name": "TColorItemTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ColorItemComponent>",
+                    "file": "projects/skeleton-components/src/lib/storybook/color/color-item/color-item.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/skeleton-components/src/lib/storybook/color/color-palette/color-palette.component.stories.ts": [
+                {
+                    "name": "TColorPaletteTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ColorPaletteComponent>",
+                    "file": "projects/skeleton-components/src/lib/storybook/color/color-palette/color-palette.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/skeleton-components/src/lib/components/types/t-colors.ts": [
+                {
+                    "name": "TColors",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"black\" | \"white\" | \"gray\" | \"primary\" | \"secondary\"",
+                    "file": "projects/skeleton-components/src/lib/components/types/t-colors.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 192
+                }
+            ],
+            "projects/skeleton-components/src/lib/components/types/t-icon-set.ts": [
+                {
+                    "name": "TIconSet",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"icon\" | \"country\"",
+                    "file": "projects/skeleton-components/src/lib/components/types/t-icon-set.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 192
+                }
+            ],
+            "projects/skeleton-components/src/lib/components/types/t-sizes.ts": [
+                {
+                    "name": "TSizes",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"small\" | \"extra-small\" | \"regular\" | \"medium\" | \"large\" | \"huge\"",
+                    "file": "projects/skeleton-components/src/lib/components/types/t-sizes.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 192
+                }
+            ]
+        }
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "projects/skeleton-components/src/lib/components/atoms/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/components/atoms/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/components/atoms/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/color/color-item/color-item.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "color",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/color/color-item/color-item.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ColorItemComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/color/color-item/color-item.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "IColor",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/color/color-palette/color-palette.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "color",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/color/color-palette/color-palette.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ColorPaletteComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}

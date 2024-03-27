@@ -23,23 +23,14 @@ type TButtonTemplate = StoryObj<ButtonComponent>;
 export const primary: TButtonTemplate = {
   args: {
     label: 'Primary Button',
+    size: 'regular'
   }
 }
 
-export const withIcon: TButtonTemplate = {
+export const secondary: TButtonTemplate = {
   args: {
-    label: 'Add Button',
-    icon: 'plus',
-    iconSet: 'icon',
-    iconOnly: true
-  }
-}
-
-export const withCountry: TButtonTemplate = {
-  args: {
-    label: 'Germany',
-    icon: 'de',
-    iconSet: 'country',
-    iconOnly: true
+    label: 'Primary Button',
+    color: 'secondary',
+    size: 'regular'
   }
 }

@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "rootDir": ".",
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
@@ -14,9 +15,11 @@
     "declaration": false,
     "experimentalDecorators": true,
     "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "baseUrl": ".",
     "paths": {
-      "skeleton-components": [
-        "./dist/skeleton-components"
+      "@scs/types": [
+        "projects/skeleton-components/src/lib/components/types/public-api.ts"
       ]
     },
     "importHelpers": true,

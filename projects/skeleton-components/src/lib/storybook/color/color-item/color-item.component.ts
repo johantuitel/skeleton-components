@@ -16,6 +16,6 @@ interface IColor {
 })
 export class ColorItemComponent {
   @Input({required: true}) title!: string;
-  @Input({required: false}) subtitle: string;
+  @Input({required: false}) subtitle: string | undefined;
   @Input({required: true}) colors: Array<IColor> = [];
 }

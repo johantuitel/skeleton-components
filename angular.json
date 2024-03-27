@@ -37,31 +37,41 @@
         "storybook": {
           "builder": "@storybook/angular:start-storybook",
           "options": {
-            "configDir": "projects/skeleton-components/.storybook",
+            "configDir": ".storybook",
             "browserTarget": "skeleton-components:build",
             "compodoc": true,
             "compodocArgs": [
               "-e",
               "json",
               "-d",
-              "projects/skeleton-components"
+              "./generated"
             ],
             "port": 6006
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
           }
         },
         "build-storybook": {
           "builder": "@storybook/angular:build-storybook",
           "options": {
-            "configDir": "projects/skeleton-components/.storybook",
+            "configDir": ".storybook",
             "browserTarget": "skeleton-components:build",
             "compodoc": true,
             "compodocArgs": [
               "-e",
               "json",
               "-d",
-              "projects/skeleton-components"
+              "./generated"
             ],
             "outputDir": "storybook-static"
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
           }
         }
       }
