@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Brazukka B.V. Nederland. All Rights Reserved.
+// Copyright (c) 2024 Skeleton-components. All Rights Reserved.
 
 import { ColorItemComponent } from './color-item/color-item.component';
 import { ColorPaletteComponent } from './color-palette/color-palette.component';

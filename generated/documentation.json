@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "IColor",
-            "id": "interface-IColor-ab506ab8a9ad8aca8636438cd86281735fc78c994d932b924dc79cf0f40ca2b59f7324614ca0111cfa75ca457d6cf557f4c05e990a78e8d00f248758110bb8d3",
+            "id": "interface-IColor-a88f959c39803613ee34f5930e03c57b3a4548934bc647882e7081ddde5f45642b55fe9c58b5f51c7070d998852c0984984a986279d93d908ee3b6a80b00b908",
             "file": "projects/skeleton-components/src/lib/storybook/color/color-item/color-item.component.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\r\n\r\ninterface IColor {\r\n  color: string;\r\n  function: string;\r\n  scssVariable: string;\r\n  cssVariable: string;\r\n}\r\n\r\n@Component({\r\n  selector: 'brazukka-color-item',\r\n  templateUrl: './color-item.component.html',\r\n  styleUrl: './color-item.component.scss',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ColorItemComponent {\r\n  @Input({required: true}) title!: string;\r\n  @Input({required: false}) subtitle: string | undefined;\r\n  @Input({required: true}) colors: Array<IColor> = [];\r\n}\r\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\r\n\r\ninterface IColor {\r\n  color: string;\r\n  function: string;\r\n  scssVariable: string;\r\n  cssVariable: string;\r\n}\r\n\r\n@Component({\r\n  selector: 'scs-color-item',\r\n  templateUrl: './color-item.component.html',\r\n  styleUrl: './color-item.component.scss',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ColorItemComponent {\r\n  /**\r\n   * The title of the Color item.\r\n   */\r\n  @Input({required: true}) title!: string;\r\n  @Input({required: false}) subtitle: string | undefined;\r\n  @Input({required: true}) colors: Array<IColor> = [];\r\n}\r\n",
             "properties": [
                 {
                     "name": "color",
@@ -61,7 +61,7 @@
     "components": [
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-becb0589030d127dbcce8959353b72f8b8cfd1cbf361b279697f79a8ffb148fb44523ca92e9fbb832f95b6c12c91cfe55e7ad59156a273b97f15f3c5f50542d6",
+            "id": "component-ButtonComponent-6ffa76bd63ce08a7e6209c5d65b1119259e6abf153a92c7c1b70c9df0a6eb3d0d42200af9ebd518e82bb58e5e216d5e2a1720d756712275bc974bec5329fe043",
             "file": "projects/skeleton-components/src/lib/components/atoms/button/button.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -69,7 +69,7 @@
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "brazukka-button",
+            "selector": "scs-button",
             "styleUrls": [],
             "styles": [],
             "templateUrl": [
@@ -85,7 +85,9 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "optional": false,
-                    "line": 15,
+                    "rawdescription": "\n\nThe Color of the button, see {@link TColors}.\n",
+                    "description": "<p>The Color of the button, see {@link TColors}.</p>\n",
+                    "line": 21,
                     "type": "TColors",
                     "decorators": []
                 },
@@ -93,7 +95,9 @@
                     "name": "label",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
+                    "rawdescription": "\n\nThe Labeel of the button.\n",
+                    "description": "<p>The Labeel of the button.</p>\n",
+                    "line": 17,
                     "type": "string | undefined",
                     "decorators": []
                 },
@@ -104,7 +108,9 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "optional": false,
-                    "line": 16,
+                    "rawdescription": "\n\nPossible sizes of the button, see {@link TSizes}.\n",
+                    "description": "<p>Possible sizes of the button, see {@link TSizes}.</p>\n",
+                    "line": 25,
                     "type": "TSizes",
                     "decorators": []
                 }
@@ -115,7 +121,9 @@
                     "defaultValue": "new EventEmitter<Event>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "rawdescription": "\n\nClicked event handled by the implementing code.\n",
+                    "description": "<p>Clicked event handled by the implementing code.</p>\n",
+                    "line": 30,
                     "type": "EventEmitter<Event>"
                 }
             ],
@@ -134,7 +142,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 20,
+                    "line": 32,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -159,7 +167,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';\r\nimport { TColors, TSizes } from '@scs/types';\r\n\r\n\r\n@Component({\r\n  selector: 'brazukka-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrl: './button.component.scss',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ButtonComponent {\r\n\r\n  @Input() label: string | undefined;\r\n  @Input({required: true}) color: TColors = 'black';\r\n  @Input({required: true}) size: TSizes = 'regular';\r\n\r\n  @Output() clicked: EventEmitter<Event> = new EventEmitter<Event>();\r\n\r\n  click(event: MouseEvent): void {\r\n    this.clicked.emit(event);\r\n  }\r\n}\r\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';\r\nimport { TColors, TSizes } from '@scs/types';\r\n\r\n\r\n@Component({\r\n  selector: 'scs-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrl: './button.component.scss',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ButtonComponent {\r\n\r\n  /**\r\n   * The Labeel of the button.\r\n   */\r\n  @Input() label: string | undefined;\r\n  /**\r\n   * The Color of the button, see {@link TColors}.\r\n   */\r\n  @Input({required: true}) color: TColors = 'black';\r\n  /**\r\n   * Possible sizes of the button, see {@link TSizes}.\r\n   */\r\n  @Input({required: true}) size: TSizes = 'regular';\r\n\r\n  /**\r\n   * Clicked event handled by the implementing code.\r\n   */\r\n  @Output() clicked: EventEmitter<Event> = new EventEmitter<Event>();\r\n\r\n  click(event: MouseEvent): void {\r\n    this.clicked.emit(event);\r\n  }\r\n}\r\n",
             "styleUrl": "./button.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -169,7 +177,7 @@
         },
         {
             "name": "ColorItemComponent",
-            "id": "component-ColorItemComponent-ab506ab8a9ad8aca8636438cd86281735fc78c994d932b924dc79cf0f40ca2b59f7324614ca0111cfa75ca457d6cf557f4c05e990a78e8d00f248758110bb8d3",
+            "id": "component-ColorItemComponent-a88f959c39803613ee34f5930e03c57b3a4548934bc647882e7081ddde5f45642b55fe9c58b5f51c7070d998852c0984984a986279d93d908ee3b6a80b00b908",
             "file": "projects/skeleton-components/src/lib/storybook/color/color-item/color-item.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -177,7 +185,7 @@
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "brazukka-color-item",
+            "selector": "scs-color-item",
             "styleUrls": [],
             "styles": [],
             "templateUrl": [
@@ -193,7 +201,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "optional": false,
-                    "line": 20,
+                    "line": 23,
                     "type": "Array<IColor>",
                     "decorators": []
                 },
@@ -203,7 +211,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "optional": true,
-                    "line": 19,
+                    "line": 22,
                     "type": "string | undefined",
                     "decorators": []
                 },
@@ -213,7 +221,9 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "optional": false,
-                    "line": 18,
+                    "rawdescription": "\n\nThe title of the Color item.\n",
+                    "description": "<p>The title of the Color item.</p>\n",
+                    "line": 21,
                     "type": "string",
                     "decorators": []
                 }
@@ -230,7 +240,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\r\n\r\ninterface IColor {\r\n  color: string;\r\n  function: string;\r\n  scssVariable: string;\r\n  cssVariable: string;\r\n}\r\n\r\n@Component({\r\n  selector: 'brazukka-color-item',\r\n  templateUrl: './color-item.component.html',\r\n  styleUrl: './color-item.component.scss',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ColorItemComponent {\r\n  @Input({required: true}) title!: string;\r\n  @Input({required: false}) subtitle: string | undefined;\r\n  @Input({required: true}) colors: Array<IColor> = [];\r\n}\r\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\r\n\r\ninterface IColor {\r\n  color: string;\r\n  function: string;\r\n  scssVariable: string;\r\n  cssVariable: string;\r\n}\r\n\r\n@Component({\r\n  selector: 'scs-color-item',\r\n  templateUrl: './color-item.component.html',\r\n  styleUrl: './color-item.component.scss',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ColorItemComponent {\r\n  /**\r\n   * The title of the Color item.\r\n   */\r\n  @Input({required: true}) title!: string;\r\n  @Input({required: false}) subtitle: string | undefined;\r\n  @Input({required: true}) colors: Array<IColor> = [];\r\n}\r\n",
             "styleUrl": "./color-item.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -240,7 +250,7 @@
         },
         {
             "name": "ColorPaletteComponent",
-            "id": "component-ColorPaletteComponent-62547e69038d61ddb2b4ae1681909d899ed500569352613e9ea3c5ec1d9f0c79d61ec1a17d7e6ea319d2c528346424308aff9cad324d595c7d57947d564db9f4",
+            "id": "component-ColorPaletteComponent-649b705067d9db31cb63900d0a32939bce213f44d3f25aebb80f015c6c5fd2d6b7c49bc4ddd641e42b03aa8fa3214b178cdbbbe2c60a97ecf7ac48eb864c1d91",
             "file": "projects/skeleton-components/src/lib/storybook/color/color-palette/color-palette.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -248,7 +258,7 @@
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "brazukka-color-palette",
+            "selector": "scs-color-palette",
             "styleUrls": [],
             "styles": [],
             "templateUrl": [
@@ -269,7 +279,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'brazukka-color-palette',\r\n  templateUrl: './color-palette.component.html',\r\n  styleUrl: './color-palette.component.scss',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ColorPaletteComponent {}\r\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'scs-color-palette',\r\n  templateUrl: './color-palette.component.html',\r\n  styleUrl: './color-palette.component.scss',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ColorPaletteComponent {}\r\n",
             "styleUrl": "./color-palette.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -367,7 +377,7 @@
             "deprecated": false,
             "file": "projects/skeleton-components/src/lib/storybook/color/color.module.ts",
             "methods": [],
-            "sourceCode": "// Copyright (c) 2024 Brazukka B.V. Nederland. All Rights Reserved.\r\n\r\nimport { ColorItemComponent } from './color-item/color-item.component';\r\nimport { ColorPaletteComponent } from './color-palette/color-palette.component';\r\nimport { NgModule } from '@angular/core';\r\n\r\n/**\r\n * Color Module\r\n */\r\n@NgModule({\r\n  declarations: [ColorItemComponent, ColorPaletteComponent],\r\n  imports: [],\r\n  exports: [ColorItemComponent, ColorPaletteComponent],\r\n})\r\nexport class ColorModule {}\r\n",
+            "sourceCode": "// Copyright (c) 2024 Skeleton-components. All Rights Reserved.\r\n\r\nimport { ColorItemComponent } from './color-item/color-item.component';\r\nimport { ColorPaletteComponent } from './color-palette/color-palette.component';\r\nimport { NgModule } from '@angular/core';\r\n\r\n/**\r\n * Color Module\r\n */\r\n@NgModule({\r\n  declarations: [ColorItemComponent, ColorPaletteComponent],\r\n  imports: [],\r\n  exports: [ColorItemComponent, ColorPaletteComponent],\r\n})\r\nexport class ColorModule {}\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -707,7 +717,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "TColorPaletteTemplate",
-                "defaultValue": "{\r\n  args: {\r\n    headerTitle: 'Maxxy-tiles',\r\n    headerColor: 'primary',\r\n    footerColor: 'primary'\r\n  }\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    headerTitle: 'Skeleton Component Colors',\r\n    headerColor: 'primary',\r\n    footerColor: 'primary'\r\n  }\r\n}"
             },
             {
                 "name": "primary",
@@ -822,7 +832,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "TColorPaletteTemplate",
-                    "defaultValue": "{\r\n  args: {\r\n    headerTitle: 'Maxxy-tiles',\r\n    headerColor: 'primary',\r\n    footerColor: 'primary'\r\n  }\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    headerTitle: 'Skeleton Component Colors',\r\n    headerColor: 'primary',\r\n    footerColor: 'primary'\r\n  }\r\n}"
                 }
             ],
             "projects/skeleton-components/src/lib/components/atoms/button/button.component.stories.ts": [
@@ -933,7 +943,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 0,
+        "count": 11,
         "status": "low",
         "files": [
             {
@@ -961,9 +971,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "ButtonComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/6",
-                "status": "low"
+                "coveragePercent": 66,
+                "coverageCount": "4/6",
+                "status": "good"
             },
             {
                 "filePath": "projects/skeleton-components/src/lib/storybook/color/color-item/color-item.component.stories.ts",
@@ -980,8 +990,8 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "ColorItemComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coveragePercent": 25,
+                "coverageCount": "1/4",
                 "status": "low"
             },
             {

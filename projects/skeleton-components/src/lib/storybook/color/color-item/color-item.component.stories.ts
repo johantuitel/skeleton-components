@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Brazukka B.V. Nederland. All Rights Reserved.
+// Copyright (c) 2024 Skeleton-components. All Rights Reserved.
 
 import type { Meta, StoryObj } from '@storybook/angular';
 
