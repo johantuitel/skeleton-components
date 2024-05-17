@@ -1,11 +1,7 @@
 // Copyright (c) 2024 Skeleton-components. All Rights Reserved.
 
-import 'jest';
-
 import { ButtonComponent } from './button.component';
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
-import { ComponentFixture } from '@angular/core/testing';
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 describe('ButtonComponent', () => {
   let component: ButtonComponent;
@@ -13,7 +9,7 @@ describe('ButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ButtonComponent],
+      declarations: [ButtonComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ButtonComponent);
