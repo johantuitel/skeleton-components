@@ -34,6 +34,15 @@
             ]
           }
         },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/**/*.ts",
+              "projects/**/*.html"
+            ]
+          }
+        },
         "storybook": {
           "builder": "@storybook/angular:start-storybook",
           "options": {
