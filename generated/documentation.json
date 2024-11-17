@@ -61,10 +61,12 @@
     "components": [
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-6ffa76bd63ce08a7e6209c5d65b1119259e6abf153a92c7c1b70c9df0a6eb3d0d42200af9ebd518e82bb58e5e216d5e2a1720d756712275bc974bec5329fe043",
+            "id": "component-ButtonComponent-1568056d96de833a80d6123b6faa66048322b41778617c683764d8b293b8b267a8d5f264e71d17751dbdb5b4f96cd914d0f5b3f40ab5ab6d1a033cdbd56ffd99",
             "file": "projects/skeleton-components/src/lib/components/atoms/button/button.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
-            "encapsulation": [],
+            "encapsulation": [
+                "ViewEncapsulation.None"
+            ],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
@@ -87,7 +89,7 @@
                     "optional": false,
                     "rawdescription": "\n\nThe Color of the button, see {@link TColors}.\n",
                     "description": "<p>The Color of the button, see {@link TColors}.</p>\n",
-                    "line": 21,
+                    "line": 22,
                     "type": "TColors",
                     "decorators": []
                 },
@@ -97,7 +99,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nThe Labeel of the button.\n",
                     "description": "<p>The Labeel of the button.</p>\n",
-                    "line": 17,
+                    "line": 18,
                     "type": "string | undefined",
                     "decorators": []
                 },
@@ -110,7 +112,7 @@
                     "optional": false,
                     "rawdescription": "\n\nPossible sizes of the button, see {@link TSizes}.\n",
                     "description": "<p>Possible sizes of the button, see {@link TSizes}.</p>\n",
-                    "line": 25,
+                    "line": 26,
                     "type": "TSizes",
                     "decorators": []
                 }
@@ -123,7 +125,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nClicked event handled by the implementing code.\n",
                     "description": "<p>Clicked event handled by the implementing code.</p>\n",
-                    "line": 30,
+                    "line": 31,
                     "type": "EventEmitter<Event>"
                 }
             ],
@@ -142,7 +144,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 32,
+                    "line": 33,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -167,7 +169,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';\r\nimport { TColors, TSizes } from '@scs/types';\r\n\r\n\r\n@Component({\r\n  selector: 'scs-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrl: './button.component.scss',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ButtonComponent {\r\n\r\n  /**\r\n   * The Labeel of the button.\r\n   */\r\n  @Input() label: string | undefined;\r\n  /**\r\n   * The Color of the button, see {@link TColors}.\r\n   */\r\n  @Input({required: true}) color: TColors = 'black';\r\n  /**\r\n   * Possible sizes of the button, see {@link TSizes}.\r\n   */\r\n  @Input({required: true}) size: TSizes = 'regular';\r\n\r\n  /**\r\n   * Clicked event handled by the implementing code.\r\n   */\r\n  @Output() clicked: EventEmitter<Event> = new EventEmitter<Event>();\r\n\r\n  click(event: MouseEvent): void {\r\n    this.clicked.emit(event);\r\n  }\r\n}\r\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';\r\nimport { TColors, TSizes } from '../../public-api';\r\n\r\n\r\n@Component({\r\n  selector: 'scs-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrl: './button.component.scss',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  encapsulation: ViewEncapsulation.None\r\n})\r\nexport class ButtonComponent {\r\n\r\n  /**\r\n   * The Labeel of the button.\r\n   */\r\n  @Input() label: string | undefined;\r\n  /**\r\n   * The Color of the button, see {@link TColors}.\r\n   */\r\n  @Input({required: true}) color: TColors = 'black';\r\n  /**\r\n   * Possible sizes of the button, see {@link TSizes}.\r\n   */\r\n  @Input({required: true}) size: TSizes = 'regular';\r\n\r\n  /**\r\n   * Clicked event handled by the implementing code.\r\n   */\r\n  @Output() clicked: EventEmitter<Event> = new EventEmitter<Event>();\r\n\r\n  click(event: MouseEvent): void {\r\n    this.clicked.emit(event);\r\n  }\r\n}\r\n",
             "styleUrl": "./button.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -286,6 +288,70 @@
             "stylesData": "",
             "extends": [],
             "templateData": "<p>color-palette works!</p>\r\n"
+        },
+        {
+            "name": "EasingComponent",
+            "id": "component-EasingComponent-dc97831fe1619e9672b519c45e3b85049aedb0c46d2726be9364b544319fa1760e1cacdd6b7fe98409b21bdce27376f073b5322510a553ea76c7c06d8fafc27a",
+            "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "scs-easing",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./easing.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "required": true,
+                    "name": "category",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": false,
+                    "rawdescription": "\n\nCategory of the easing.\n",
+                    "description": "<p>Category of the easing.</p>\n",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "required": true,
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": false,
+                    "rawdescription": "\n\nName of the easing.\n",
+                    "description": "<p>Name of the easing.</p>\n",
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'scs-easing',\n  templateUrl: './easing.component.html',\n  styleUrl: './easing.component.scss',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class EasingComponent {\n  /**\n   * Category of the easing.\n   */\n  @Input({ required: true }) category!: string;\n\n  /**\n   * Name of the easing.\n   */\n  @Input({ required: true }) name!: string;\n}\n",
+            "styleUrl": "./easing.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": ""
         }
     ],
     "modules": [
@@ -720,6 +786,266 @@
                 "defaultValue": "{\r\n  args: {\r\n    headerTitle: 'Skeleton Component Colors',\r\n    headerColor: 'primary',\r\n    footerColor: 'primary'\r\n  }\r\n}"
             },
             {
+                "name": "deleteLink",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/decorators/theme-decorator.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(id: string): void => {\r\n    const foundStylesheetElement: HTMLElement | null = document.getElementById(id);\r\n\r\n    if (foundStylesheetElement) {\r\n        foundStylesheetElement.remove();\r\n    }\r\n}"
+            },
+            {
+                "name": "easInBack",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-back',\r\n    category: 'back'\r\n  }\r\n}"
+            },
+            {
+                "name": "easInCirc",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-circ',\r\n    category: 'circ'\r\n  }\r\n}"
+            },
+            {
+                "name": "easInCubic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-cubic',\r\n    category: 'cubic'\r\n  }\r\n}"
+            },
+            {
+                "name": "easInExpo",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-expo',\r\n    category: 'expo'\r\n  }\r\n}"
+            },
+            {
+                "name": "easInOutBack",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-out-back',\r\n    category: 'back'\r\n  }\r\n}"
+            },
+            {
+                "name": "easInOutCirc",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-out-circ',\r\n    category: 'circ'\r\n  }\r\n}"
+            },
+            {
+                "name": "easInOutCubic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-out-cubic',\r\n    category: 'cubic'\r\n  }\r\n}"
+            },
+            {
+                "name": "easInOutExpo",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-out-expo',\r\n    category: 'expo'\r\n  }\r\n}"
+            },
+            {
+                "name": "easInOutQuad",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-out-quad',\r\n    category: 'quad'\r\n  }\r\n}"
+            },
+            {
+                "name": "easInOutQuart",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-out-quart',\r\n    category: 'quart'\r\n  }\r\n}"
+            },
+            {
+                "name": "easInOutQuint",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-out-quint',\r\n    category: 'quint'\r\n  }\r\n}"
+            },
+            {
+                "name": "easInOutSine",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-out-sine',\r\n    category: 'sine'\r\n  }\r\n}"
+            },
+            {
+                "name": "easInQuad",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-quad',\r\n    category: 'quad'\r\n  }\r\n}"
+            },
+            {
+                "name": "easInQuart",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-quart',\r\n    category: 'quart'\r\n  }\r\n}"
+            },
+            {
+                "name": "easInQuint",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-quint',\r\n    category: 'quint'\r\n  }\r\n}"
+            },
+            {
+                "name": "easInSine",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-sine',\r\n    category: 'sine'\r\n  }\r\n}"
+            },
+            {
+                "name": "easOutBack",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-out-back',\r\n    category: 'back'\r\n  }\r\n}"
+            },
+            {
+                "name": "easOutCirc",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-out-circ',\r\n    category: 'circ'\r\n  }\r\n}"
+            },
+            {
+                "name": "easOutCubic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-out-cubic',\r\n    category: 'cubic'\r\n  }\r\n}"
+            },
+            {
+                "name": "easOutExpo",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-out-expo',\r\n    category: 'expo'\r\n  }\r\n}"
+            },
+            {
+                "name": "easOutQuad",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-out-quad',\r\n    category: 'quad'\r\n  }\r\n}"
+            },
+            {
+                "name": "easOutQuart",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-out-quart',\r\n    category: 'quart'\r\n  }\r\n}"
+            },
+            {
+                "name": "easOutQuint",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-out-quint',\r\n    category: 'quint'\r\n  }\r\n}"
+            },
+            {
+                "name": "easOutSine",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "TEasingTemplate",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'ease-out-sine',\r\n    category: 'sine'\r\n  }\r\n}"
+            },
+            {
+                "name": "getOrCreateLink",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/decorators/theme-decorator.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(id: string): HTMLLinkElement => {\r\n    const foundStylesheetElement: HTMLElement | null = document.getElementById(id);\r\n\r\n    if (foundStylesheetElement) {\r\n        return foundStylesheetElement as HTMLLinkElement;\r\n    }\r\n\r\n    const stylesheetElement = document.createElement('link');\r\n\r\n    stylesheetElement.setAttribute('id', id);\r\n    stylesheetElement.setAttribute('rel', 'stylesheet')\r\n\r\n    document.head.appendChild(stylesheetElement);\r\n\r\n    return stylesheetElement;\r\n}"
+            },
+            {
                 "name": "primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -738,6 +1064,16 @@
                 "deprecationMessage": "",
                 "type": "TButtonTemplate",
                 "defaultValue": "{\r\n  args: {\r\n    label: 'Primary Button',\r\n    color: 'secondary',\r\n    size: 'regular'\r\n  }\r\n}"
+            },
+            {
+                "name": "themeDecorator",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/skeleton-components/src/lib/storybook/decorators/theme-decorator.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(storyFn: StoryFunction<Renderer>, context: StoryContext<Renderer>) => {\r\n    const theme = context.globals['theme'] || 'no-theme';\r\n\r\n    if (theme !== 'no-theme') {\r\n        deleteLink('theme-stylesheet');\r\n    } else {\r\n        const link = getOrCreateLink('theme-stylesheet');\r\n        link.href = `assets/08-themes/${theme}.css`;\r\n    }\r\n    \r\n    return storyFn();\r\n}"
             }
         ],
         "functions": [],
@@ -787,6 +1123,17 @@
                 "kind": 192
             },
             {
+                "name": "TEasingTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<EasingComponent>",
+                "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
                 "name": "TIconSet",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
@@ -833,6 +1180,280 @@
                     "deprecationMessage": "",
                     "type": "TColorPaletteTemplate",
                     "defaultValue": "{\r\n  args: {\r\n    headerTitle: 'Skeleton Component Colors',\r\n    headerColor: 'primary',\r\n    footerColor: 'primary'\r\n  }\r\n}"
+                }
+            ],
+            "projects/skeleton-components/src/lib/storybook/decorators/theme-decorator.ts": [
+                {
+                    "name": "deleteLink",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/decorators/theme-decorator.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(id: string): void => {\r\n    const foundStylesheetElement: HTMLElement | null = document.getElementById(id);\r\n\r\n    if (foundStylesheetElement) {\r\n        foundStylesheetElement.remove();\r\n    }\r\n}"
+                },
+                {
+                    "name": "getOrCreateLink",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/decorators/theme-decorator.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(id: string): HTMLLinkElement => {\r\n    const foundStylesheetElement: HTMLElement | null = document.getElementById(id);\r\n\r\n    if (foundStylesheetElement) {\r\n        return foundStylesheetElement as HTMLLinkElement;\r\n    }\r\n\r\n    const stylesheetElement = document.createElement('link');\r\n\r\n    stylesheetElement.setAttribute('id', id);\r\n    stylesheetElement.setAttribute('rel', 'stylesheet')\r\n\r\n    document.head.appendChild(stylesheetElement);\r\n\r\n    return stylesheetElement;\r\n}"
+                },
+                {
+                    "name": "themeDecorator",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/decorators/theme-decorator.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(storyFn: StoryFunction<Renderer>, context: StoryContext<Renderer>) => {\r\n    const theme = context.globals['theme'] || 'no-theme';\r\n\r\n    if (theme !== 'no-theme') {\r\n        deleteLink('theme-stylesheet');\r\n    } else {\r\n        const link = getOrCreateLink('theme-stylesheet');\r\n        link.href = `assets/08-themes/${theme}.css`;\r\n    }\r\n    \r\n    return storyFn();\r\n}"
+                }
+            ],
+            "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts": [
+                {
+                    "name": "easInBack",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-back',\r\n    category: 'back'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easInCirc",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-circ',\r\n    category: 'circ'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easInCubic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-cubic',\r\n    category: 'cubic'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easInExpo",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-expo',\r\n    category: 'expo'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easInOutBack",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-out-back',\r\n    category: 'back'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easInOutCirc",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-out-circ',\r\n    category: 'circ'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easInOutCubic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-out-cubic',\r\n    category: 'cubic'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easInOutExpo",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-out-expo',\r\n    category: 'expo'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easInOutQuad",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-out-quad',\r\n    category: 'quad'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easInOutQuart",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-out-quart',\r\n    category: 'quart'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easInOutQuint",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-out-quint',\r\n    category: 'quint'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easInOutSine",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-out-sine',\r\n    category: 'sine'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easInQuad",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-quad',\r\n    category: 'quad'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easInQuart",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-quart',\r\n    category: 'quart'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easInQuint",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-quint',\r\n    category: 'quint'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easInSine",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-in-sine',\r\n    category: 'sine'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easOutBack",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-out-back',\r\n    category: 'back'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easOutCirc",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-out-circ',\r\n    category: 'circ'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easOutCubic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-out-cubic',\r\n    category: 'cubic'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easOutExpo",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-out-expo',\r\n    category: 'expo'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easOutQuad",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-out-quad',\r\n    category: 'quad'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easOutQuart",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-out-quart',\r\n    category: 'quart'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easOutQuint",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-out-quint',\r\n    category: 'quint'\r\n  }\r\n}"
+                },
+                {
+                    "name": "easOutSine",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TEasingTemplate",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'ease-out-sine',\r\n    category: 'sine'\r\n  }\r\n}"
                 }
             ],
             "projects/skeleton-components/src/lib/components/atoms/button/button.component.stories.ts": [
@@ -913,6 +1534,19 @@
                     "kind": 192
                 }
             ],
+            "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts": [
+                {
+                    "name": "TEasingTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<EasingComponent>",
+                    "file": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "projects/skeleton-components/src/lib/components/types/t-icon-set.ts": [
                 {
                     "name": "TIconSet",
@@ -943,7 +1577,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 11,
+        "count": 4,
         "status": "low",
         "files": [
             {
@@ -1021,6 +1655,285 @@
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/decorators/theme-decorator.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "deleteLink",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/decorators/theme-decorator.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "getOrCreateLink",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/decorators/theme-decorator.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "themeDecorator",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easInBack",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easInCirc",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easInCubic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easInExpo",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easInOutBack",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easInOutCirc",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easInOutCubic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easInOutExpo",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easInOutQuad",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easInOutQuart",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easInOutQuint",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easInOutSine",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easInQuad",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easInQuart",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easInQuint",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easInSine",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easOutBack",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easOutCirc",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easOutCubic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easOutExpo",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easOutQuad",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easOutQuart",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easOutQuint",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "easOutSine",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/skeleton-components/src/lib/storybook/easings/easing/easing.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "EasingComponent",
+                "coveragePercent": 66,
+                "coverageCount": "2/3",
+                "status": "good"
             }
         ]
     }

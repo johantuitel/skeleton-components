@@ -1,5 +1,5 @@
 // Copyright (c) 2024 Skeleton-components. All Rights Reserved.
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { TColors, TSizes } from '../../public-api';
 
 
@@ -8,6 +8,7 @@ import { TColors, TSizes } from '../../public-api';
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class ButtonComponent {
 

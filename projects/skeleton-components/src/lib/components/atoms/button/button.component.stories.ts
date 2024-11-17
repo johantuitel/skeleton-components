@@ -22,6 +22,7 @@ type TButtonTemplate = StoryObj<ButtonComponent>;
 export const primary: TButtonTemplate = {
   args: {
     label: 'Primary Button',
+    color: 'primary',
     size: 'regular'
   }
 }

@@ -77,7 +77,7 @@ $font-color-secondary: #d39f99;
   }
 
   &.color-primary {
-    background-color: $button-color-primary;
+    background-color: var(--primary-color, $button-color-primary);
     color: $font-color-black;
   }
 

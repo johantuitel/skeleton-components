@@ -51,7 +51,15 @@
               "-d",
               "./generated"
             ],
-            "port": 6006
+            "port": 6006,
+            "assets": [
+              "projects/skeleton-components/src/lib/assets",
+              {
+                "glob": "**/*",
+                "input": "projects/skeleton-components/src/lib/styling/08-themes",
+                "output": "assets/08-themes"
+              }
+            ]
           },
           "configurations": {
             "ci": {

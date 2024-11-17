@@ -34,3 +34,19 @@ To build the project run `npm run build:skeleton-components`
 ## install locally
 
 To install the package locally run `npm install -- "../skeleton-components/dist/skeleton-components"`
+And add this to the tsconfig.json file:
+
+```
+    "paths": {
+        "@angular/*":[
+            "./node_modules/@angular/*"
+        ],
+    },
+```
+
+## applying a theme
+
+To apply a theme in the implementing application for you components, add the following to the styles.scss/css file:
+```
+@import '../node_modules/@skeleton/components/src/lib/styling/08-themes/skeleton-light.css';
+```
